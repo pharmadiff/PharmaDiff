@@ -56,24 +56,24 @@ GEOM-DRUGS without hydrogens:
 
   Run:
 
-``` python3 main.py dataset=geom dataset.remove_h=True +experiment=geom_no_h_adaptive general.resume='path_to checkpoints' ```
+``` python3 main.py dataset=geom dataset.remove_h=True +experiment=geom_no_h_adaptive general.resume='path_to checkpoint' ```
 
 
 ## Evaluation
 Run:
 
-``` python3 main.py dataset=geom dataset.remove_h=True +experiment=geom_no_h_adaptive general.test_only='path_to checkpoints' ```
+``` python3 main.py dataset=geom dataset.remove_h=True +experiment=geom_no_h_adaptive general.test_only='path_to checkpoint' ```
 
 
 ## Checkpoints
 
-QM9 adaptive implicit H:
+QM9:
   - command: `python3 main.py dataset=qm9 dataset.remove_h=True +experiment=qm9_with_h_adaptive`
   - checkpoint: https://drive.google.com/file/d/1dnaMjC2BukL2or1Ur75-QddpKA9YIp_5/view?usp=sharing
 
 
 
-Geom adaptive implicit H:
+Geom:
   - command: `python3 main.py dataset=geom dataset.remove_h=True +experiment=geom_no_h_adaptive`
   - checkpoint: https://drive.google.com/file/d/1MV6wZnfNYeJem_xKGbKXZ6ECrF0aenmd/view?usp=sharing
 

@@ -84,7 +84,7 @@ Geom:
 ## Use PharmaDiff with an input pharmacophore
 
 - To use PharmaDiff with a pharmacophore input, provide the pharmacophore as a .pkl file. To generate this file, you will need an SDF file containing either:
-  - the atoms/fragments associated with the pharmacophore, or
+  - the atoms/fragments associated with the pharmacophore
   - the full reference molecule.
 
 A step-by-step tutorial on generating the .pkl file will be provided in the examples/pharmacophore_prep.ipynb jupiter notebook.

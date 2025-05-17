@@ -49,7 +49,7 @@ For QM9 without hydrogens:
 
 GEOM-DRUGS without hydrogens:
 
-``` python3 main.py dataset=geom dataset.remove_h=False +experiment=geom_no_h_adaptive```
+``` python3 main.py dataset=geom dataset.remove_h=True +experiment=geom_no_h_adaptive```
 
 
 ## Resuming a previous run

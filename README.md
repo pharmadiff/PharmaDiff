@@ -38,10 +38,7 @@ This code was tested with PyTorch 2.0.1, cuda 11.8 and torch_geometric 2.3.1 on 
 
   - QM9 should download automatically
   - For GEOM, download the data  from this [link](https://drive.google.com/file/d/1ZdIXiINLmRD6MnbnCKkjvRxwZN8rrutH/view?usp=sharing) and put in `PharmaDiff/data/geom/raw/`:
-    - train: 
-    - validation: 
-    - test: 
-  
+
 ## Training:
 
 This model was derived from the adaptive MiDi model with no hydrogens, with adjustments to fit pharmacore-conditioned generation, for training you need to inside the `pharmadiff` folder  (so that the outputs are saved at the right location). 

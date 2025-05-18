@@ -21,6 +21,11 @@ from pharmadiff.metrics.metrics_utils import counter_to_tensor, wasserstein1d, t
 from pharmadiff.metrics.rdkit_match_eval import match_mol, check_ring_filter, check_pains, calculateScore
 from pharmadiff.metrics.pgmg_pharma_match_score import match_score
 
+project_root = os.path.abspath(os.path.join(os.getcwd(), ".."))
+
+# Path to the WEHI PAINS CSV
+wehi_pains_path = os.path.join(project_root, "resources", "wehi_pains.csv")
+
 
 rdkit_metrics = True
 
@@ -322,44 +327,9 @@ class SamplingMetrics(nn.Module):
         self.reset()
 
 
-    # def conf_pharma_satisfaction(self, molecules, th=1):
-    #     satisfied_percentage = []
-    #     for i, mol in enumerate(molecules):
-    #         ref_labels = mol.pharma_feat
-    #         ref_mask = ref_labels > 0
-    #         ref_coords = mol.pharma_coord
-    #         ref_labels = ref_labels[ref_mask]
-    #         ref_coords = ref_coords[ref_mask]
-    #         if len(ref_coords) == 0:
-    #             continue
-    #         if mol.rdkit_mol is None:
-    #             satisfied_percentage.append(0)
-    #         else:  
-    #             fraction_satisfied = checkPharmacophoreSatisfaction(mol, ref_labels, ref_coords, th)
-    #             satisfied_percentage.append(fraction_satisfied)
-    
-    #     self.conf_pharma_match.update(value= sum(satisfied_percentage) /len(satisfied_percentage),
-    #                               weight=len(satisfied_percentage))
         
         
-    # def conf_pharma_satisfaction(self, molecules, th=1):
-    #     satisfied_percentage = []
-    #     for i, mol in enumerate(molecules):
-    #         ref_labels = mol.pharma_feat
-    #         ref_mask = ref_labels > 0
-    #         ref_coords = mol.pharma_coord
-    #         ref_labels = ref_labels[ref_mask]
-    #         ref_coords = ref_coords[ref_mask]
-    #         if len(ref_coords) == 0:
-    #             continue
-    #         if mol.rdkit_mol is None:
-    #             satisfied_percentage.append(0)
-    #         else:  
-    #             fraction_satisfied = checkPharmacophoreSatisfaction(mol, ref_labels, ref_coords, th)
-    #             satisfied_percentage.append(fraction_satisfied)
-    
-    #     self.conf_pharma_match.update(value= sum(satisfied_percentage) /len(satisfied_percentage),
-    #                               weight=len(satisfied_percentage))
+
         
     def rdkit_pharma_satisfaction(self, molecules):
         satisfied_percentage = []
@@ -455,15 +425,11 @@ class SamplingMetrics(nn.Module):
         
         import os
         print(os.getcwd()) 
-        with open('/home/amira/PharamDiff_frag/resources/wehi_pains.csv', 'r') as f:
+        with open(wehi_pains_path, 'r') as f:
             pains_smarts = [Chem.MolFromSmarts(line[0], mergeHs=True) for line in csv.reader(f)]
         
         
         for i, mol in enumerate(molecules):
-            #mol.rdkit_mol.UpdatePropertyCache(strict=False)
-            #mol = molecule.rdkit_mol
-            
-
             if mol is None:
                 sas.append(-1)
                 qeds.append(-1)

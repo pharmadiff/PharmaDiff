@@ -114,7 +114,14 @@ def check_pains(mol, pains_smarts):
 _fscores = None
 
 
-def readFragmentScores(name='/home/amira/PharamDiff_frag/resources/fpscores'):
+# Get the absolute path to the top-level PharamDiff_frag directory
+project_root = os.path.abspath(os.path.join(os.getcwd(), ".."))
+
+# Build path to fpscores
+fpscores_path = os.path.join(project_root, "resources", "fpscores")
+
+
+def readFragmentScores(name=fpscores_path):
     import gzip
     global _fscores
   # generate the full path filename:

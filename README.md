@@ -4,7 +4,7 @@
 
 Authors
 
-Neurips 2025
+
 
 The authors of this code would like to thank the authors of [MiDi](https://arxiv.org/abs/2302.09048) for making their code publicly available, which served as a valuable reference for this work.
 
